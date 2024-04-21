@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CalculatorController {
-    
+
     private final CalculatorService calculatorService;
 
     public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
-    
- 
+
+
     @GetMapping("calculator")
 	public String showCalculatorForm() {
 		return "calculator.html";
 	}
-    
+
     @PostMapping("calculator")
     public String calculator(@RequestParam("num1") int num1, @RequestParam("cal") String cal, @RequestParam("num2") int num2, Model model) {
 
