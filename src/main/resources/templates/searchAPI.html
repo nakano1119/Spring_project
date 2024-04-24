@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>動物一覧</h1>
-    <form action="resultAPI" method="post"> <!-- 修正 -->
+    <form action="resultAPI" method="post">
         <select name="id">
             <option th:each="animal : ${animals}" th:value="${animal.id}" th:text="${animal.japanese_name}"></option>
         </select>
