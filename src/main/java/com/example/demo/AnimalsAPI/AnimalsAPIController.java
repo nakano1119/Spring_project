@@ -19,20 +19,20 @@ public class AnimalsAPIController {
 		this.animalsAPIService = animalsAPIService;
 	}
 
-    @GetMapping("searchAPI")
-    public String showAnimalForm(Model model) throws IOException {
-            List<AnimalsAPI> animals = animalsAPIService.getAllAnimals();
-            model.addAttribute("animals", animals);
-            return "searchAPI.html";
-    }
+	@GetMapping("searchAPI")
+	public String showAnimalForm(Model model) throws IOException {
+		List<AnimalsAPI> animals = animalsAPIService.getAllAnimals();
+		model.addAttribute("animals", animals);
+		return "searchAPI.html";
+	}
 
 	@PostMapping("resultAPI")
 	public String animal(@RequestParam("id") int id, Model model) throws IOException {
-	    AnimalsAPI animal = animalsAPIService.getAnimalById(id);
-	    List<AnimalsAPI> result = new ArrayList<>();
-	    result.add(animal);
-	    model.addAttribute("result", result);
-	    return "resultAPI.html";
+		AnimalsAPI animal = animalsAPIService.getAnimalById(id);
+		List<AnimalsAPI> result = new ArrayList<>();
+		result.add(animal);
+		model.addAttribute("result", result);
+		return "resultAPI.html";
 	}
 
 }
