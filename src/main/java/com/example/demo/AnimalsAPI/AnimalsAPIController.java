@@ -2,7 +2,7 @@ package com.example.demo.AnimalsAPI;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List; // 追加
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,13 @@ public class AnimalsAPIController {
 		this.animalsAPIService = animalsAPIService;
 	}
 
-	@GetMapping("searchAPI")
-	public String showAnimalForm() {
-		return "searchAPI.html";
-	}
+    @GetMapping("searchAPI")
+    public String showAnimalForm(Model model) throws IOException {
+            List<AnimalsAPI> animals = animalsAPIService.getAllAnimals();
+            model.addAttribute("animals", animals);
+            return "searchAPI.html";
+    }
+
 	@PostMapping("resultAPI")
 	public String animal(@RequestParam("id") int id, Model model) throws IOException {
 	    AnimalsAPI animal = animalsAPIService.getAnimalById(id);

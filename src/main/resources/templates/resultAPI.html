@@ -10,7 +10,7 @@
         <li th:each="animal : ${result}">
             <p th:text="'No： ' + ${animal.id}"></p>
             <p th:text="'英名： ' + ${animal.name}"></p>
-            <p th:text="'和名： ' + ${animal.japaneseName}"></p>
+            <p th:text="'和名： ' + ${animal.japanese_name}"></p>
             <p th:text="'鳴き声： ' + ${animal.cry}"></p>
         </li>
     </ul>

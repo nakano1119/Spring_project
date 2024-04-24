@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="utf-8" />
     <title>動物検索画面</title>
 </head>
 <body>
     <h1>動物一覧</h1>
-    <form action="resultAPI" method="post">
+    <form action="resultAPI" method="post"> <!-- 修正 -->
         <select name="id">
-            <option value="1">イヌ</option>
-            <option value="2">ネコ</option>
-            <option value="3">レッサーパンダ</option>
-            <option value="4">ライオン</option>
-            <option value="5">ラッコ</option>
-            <option value="6">ブタ</option>
+            <option th:each="animal : ${animals}" th:value="${animal.id}" th:text="${animal.japanese_name}"></option>
         </select>
         <button type="submit">検索</button>
     </form>

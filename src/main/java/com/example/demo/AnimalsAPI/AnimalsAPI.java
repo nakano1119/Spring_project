@@ -14,7 +14,7 @@ public class AnimalsAPI {
 	private String name;
 
 	@JsonProperty("japanese_name")
-	private String japaneseName;
+	private String japanese_name;
 
 	@JsonProperty("cry")
 	private String cry;
